@@ -1,0 +1,10 @@
+3. See if user is unresponsive
+4. Store Data of user (This is what we are working on)
+5. Shows a dashboard with grahpsh charts and suggestions
+ 5.1 Possible AI?
+
+
+Decide Languages.
+MERN for Website
+
+Python for scripting purposes
