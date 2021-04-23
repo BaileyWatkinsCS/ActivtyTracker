@@ -16,7 +16,7 @@ def minute_passed(oldepoch):
         return False
 
 
-process_time = {}
+application_list = {}
 timestamp = {}
 fullList = {}
 start_time = time.time()
@@ -39,9 +39,9 @@ while True:
         timestamp[current_app] = int(time.time())
 
         time.sleep(1)
-        if current_app not in process_time.keys():
-            process_time[current_app] = 0       
-        process_time[current_app] = process_time[current_app] + int(time.time())-timestamp[current_app]
+        if current_app not in application_list.keys():
+            application_list[current_app] = 0       
+        application_list[current_app] = application_list[current_app] + int(time.time())-timestamp[current_app]
         
         # if IdleTimes not in process_time.keys():
         #     process_time[IdleTimes] = 0       
@@ -51,13 +51,13 @@ while True:
         jsonTest = {
             "AppName" : current_app,
             "AppInfo" : ActiveWindow,
-            "ProcessTime" : process_time[current_app]
+            "ProcessTime" : application_list[current_app]
             # "IdleTime" : process_time[IdleTimes]
         }
         json_data = json.dumps(jsonTest)
         print(json_data)
         if minute_passed(start_time):
-            pprint(process_time)
+            pprint(application_list)
             #print(*process_time, sep='\n')  
     except:
         print("Oops!", sys.exc_info()[0], "occurred.")
